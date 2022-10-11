@@ -1,0 +1,38 @@
+object Form1: TForm1
+  Left = 199
+  Top = 117
+  Caption = 'Form1'
+  ClientHeight = 380
+  ClientWidth = 805
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object CS: TClientSocket
+    Active = False
+    ClientType = ctNonBlocking
+    Host = '127.0.0.1'
+    Port = 157
+    OnRead = CSRead
+    OnError = CSError
+  end
+  object TimerConexaoReversa: TTimer
+    Interval = 2000
+    OnTimer = TimerConexaoReversaTimer
+    Left = 64
+  end
+  object SS: TServerSocket
+    Active = True
+    Port = 158
+    ServerType = stNonBlocking
+    OnClientRead = SSClientRead
+    OnClientError = SSClientError
+    Left = 32
+  end
+end
